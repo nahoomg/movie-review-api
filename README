@@ -1,0 +1,61 @@
+My Movie Review API Project
+What This Project Is About 
+This is a backend project I'm building to learn how to create an API. It's an API for a movie review website. It lets you:
+
+Create, view, and delete movies.
+
+Create, view, update, and delete reviews for those movies.
+
+Manage users and their reviews.
+
+I'm using Django and Django REST Framework to build it, and it's my final project for my backend development course!
+
+How to Get It Running 
+If you want to run this on your computer, just follow these steps:
+
+Clone the project
+
+Bash
+
+git clone https://github.com/your-username/movie-review-api-capstone.git
+cd movie-review-api-capstone
+Install the things you need
+
+Bash
+
+# I'm using a virtual environment, you should too!
+py -m venv env
+# To activate it on Windows:
+.\env\Scripts\activate
+# Or on Mac/Linux:
+source env/bin/activate
+
+# This installs Django and Django REST Framework
+pip install djangorestframework
+Set up the database
+
+Bash
+
+py manage.py migrate
+Create an admin user
+
+Bash
+
+py manage.py createsuperuser
+This lets you use the admin site to see your database tables.
+
+Run the server!
+
+Bash
+
+py manage.py runserver
+Now you can go to http://127.0.0.1:8000/api/v1/ in your browser to see the API.
+
+What's Next? 
+I still have a lot more to do! My next steps are:
+
+Add more features, like user authentication.
+
+Make sure you can only edit reviews you wrote.
+
+Deploy it to a live website like Heroku.
