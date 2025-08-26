@@ -1,61 +1,103 @@
-My Movie Review API Project
-What This Project Is About 
-This is a backend project I'm building to learn how to create an API. It's an API for a movie review website. It lets you:
+🎬 My Movie Review API Project
+What This Project Is About
+This is a backend API I built with Django and Django REST Framework (DRF). My main goal was to create a web service that lets people manage movie reviews. This project was a big challenge, but it taught me a ton about databases, API design, and user security.
 
-Create, view, and delete movies.
+I'm really proud of how it turned out! It's a full-fledged API that's ready to be connected to a website or mobile app.
 
-Create, view, update, and delete reviews for those movies.
+✨ What I Can Do
+I managed to build all the key features from my plan. Here's a quick rundown of what the API can do:
 
-Manage users and their reviews.
+Secure User Logins: You have to register and log in to get a special token. This token is like a key that lets you do things like create or edit reviews.
 
-I'm using Django and Django REST Framework to build it, and it's my final project for my backend development course!
+Permissions: I made sure you can only change or delete a review that you wrote yourself. This keeps everything safe and secure!
 
-How to Get It Running 
-If you want to run this on your computer, just follow these steps:
+Movie & Review Management: You can create, read, update, and delete both movies and reviews. This is the main "CRUD" part of the project.
 
-Clone the project
+Standard API Endpoints: I tried my best to use standard URLs and methods, so other developers can understand and use my API easily.
 
-Bash
+🚀 How to Get It Running
+If you want to run this project on your own computer, just follow these steps.
+
+Clone the project from GitHub:
 
 git clone https://github.com/nahoomg/movie-review-api
 cd movie-review-api-capstone
-Install the things you need
 
-Bash
+Note: Please be sure to replace your-username with my actual GitHub username.
 
-# I'm using a virtual environment, you should too!
+Set up your virtual environment:
+
 py -m venv env
-# To activate it on Windows:
+# To activate on Windows:
 .\env\Scripts\activate
-# Or on Mac/Linux:
+# To activate on macOS/Linux:
 source env/bin/activate
 
-# This installs Django and Django REST Framework
-pip install djangorestframework
-Set up the database
+Install all the stuff I used:
 
-Bash
+pip install djangorestframework
+
+Set up the database:
 
 py manage.py migrate
-Create an admin user
 
-Bash
+Create an admin user:
 
 py manage.py createsuperuser
-This lets you use the admin site to see your database tables.
 
-Run the server!
+This lets you log in to the Django admin site to see all the data.
 
-Bash
+Start the server!
 
 py manage.py runserver
-Now you can go to http://127.0.0.1:8000/api/v1/ in your browser to see the API.
 
-What's Next? 
-I still have a lot more to do! My next steps are:
+The API will now be running on http://127.0.0.1:8000/. You can see the main list of endpoints at http://127.0.0.1:8000/api/v1/.
 
-Add more features, like user authentication.
+🧪 How to Test It Out
+You can use a tool like Postman or the API's browsable interface in your web browser to test all the features. Here’s how it works:
 
-Make sure you can only edit reviews you wrote.
+Step 1: User Authentication
+Register a new user:
 
-Deploy it to a live website like Heroku.
+Go to: http://127.0.0.1:8000/api/v1/auth/register/
+
+Send a POST request with this data:
+
+{
+  "username": "testuser",
+  "email": "user@example.com",
+  "password": "password123"
+}
+
+What you'll get back: A unique token that you'll use for all other actions!
+
+Step 2: Create a Movie
+Go to: http://127.0.0.1:8000/api/v1/movies/
+
+Send a POST request with this data:
+
+{
+  "title": "Inception",
+  "description": "A dream within a dream.",
+  "release_date": "2010-07-16",
+  "genre": "Sci-Fi"
+}
+
+What you'll get back: The details of the new movie.
+
+Step 3: Create a Review
+Go to: http://127.0.0.1:8000/api/v1/reviews/
+
+Add your token: You need to put the token from Step 1 in your request. Look for the "Authorization" header and set the value to Token your_token_here.
+
+Send a POST request with this data:
+
+{
+  "movie": 1, 
+  "rating": 5,
+  "comment": "Amazing movie!"
+}
+
+Note: The "movie": 1 refers to the id of the movie you created in the last step. The API knows who you are from your token, so you don't need to specify a user ID!
+
+This is just a little bit of what the API can do. I hope you enjoy checking it out!
