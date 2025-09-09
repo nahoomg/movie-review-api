@@ -3,9 +3,9 @@ from rest_framework.routers import DefaultRouter
 from .views import MovieViewSet, ReviewViewSet, UserViewSet, register_user, login_user
 
 router = DefaultRouter()
-router.register(r'movies', MovieViewSet)
-router.register(r'reviews', ReviewViewSet)
-router.register(r'users', UserViewSet)
+router.register(r'movies', MovieViewSet, basename='movie')
+router.register(r'reviews', ReviewViewSet, basename='review')
+router.register(r'users', UserViewSet, basename='user')
 
 urlpatterns = [
     path('', include(router.urls)),
